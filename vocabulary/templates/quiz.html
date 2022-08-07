@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %} Vocabulary {% endblock %}
+{% block body %}
+{% load static %}
+{% if message %}
+<h3>{{ message }}</h3>
+
+{% endif %}
+<h4>Your current rating is {{rating}}</h4>
+<h4>This word is rated {{wordrating}}</h4>
+<audio
+        controls
+        src={{audio}}>
+            Your browser does not support the
+            <code>audio</code> element.
+    </audio>
+<h2>{{ definition }}</h2>
+<h3>{{ example }}</h3>
+<form action="{% url 'index' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <input autofocus class="form-control" type="text" name="word" placeholder="What is the word?">
+    </div>
+    <input type="hidden" name="answer" value="{{ word }}">
+    <input type="hidden" name="wordrating" value="{{ wordrating }}">
+    <input type="hidden" name="rating" value="{{ rating }}">
+    <input class="btn btn-primary" type="submit" value="Answer">
+</form>
+
+{% endblock %}
