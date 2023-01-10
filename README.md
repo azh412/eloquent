@@ -6,4 +6,6 @@ An all-ages training system to assist in developing lexicon to promote English l
 
 See my write-up [here](https://devpost.com/software/eloquent)
 
+Licensed under the MIT License.
+
 Made by azh
